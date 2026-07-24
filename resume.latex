@@ -1,0 +1,197 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+\usepackage{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage{fontawesome5}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\hypersetup{
+  pdftitle={John Doe - Resume},
+  pdfauthor={John Doe},
+  pdfsubject={Resume},
+}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-8pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\justifying
+
+%----------HEADING----------
+\begin{center}
+  {\LARGE \textsc{John Doe}} \\[6pt]
+  \faMobile \hspace{3pt} (+1)\,234\,567\,8900 \hspace{4pt}
+  \faEnvelope \hspace{3pt} \textcolor{blue}{\href{mailto:john.doe@example.com}{john.doe@example.com}} \hspace{4pt}
+  \faLinkedin \hspace{3pt} \textcolor{blue}{\href{https://github.com/GDSC-HCMUS/cs101-cv-template}{johndoe}} \hspace{4pt}
+  \faGithub \hspace{3pt} \textcolor{blue}{\href{https://github.com/GDSC-HCMUS/cs101-cv-template}{johndoe}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Example University}{\small\textbf{Sep. 2020 -- Jun. 2024}}
+      {Bachelor of Software Engineering (\textbf{GPA}{: 3.x/4.0})}{Example City, Country}
+      \begin{itemize}[leftmargin=0.0in, label={}]
+    \small{\item{
+     \textbf{Honors}{: Dean's List Academic Merit Scholarship, multiple semesters.} \\
+     \textbf{Extracurricular Activities}{: Executive Member at Example Student Club since Sep. 2020.}
+    }}
+     \end{itemize}
+    \resumeSubHeadingListEnd
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Programming Languages}{: JavaScript/TypeScript (Next.js), Python (FastAPI, Django)} \\
+     \textbf{Databases}{: MongoDB, PostgreSQL} \\
+     \textbf{Cloud}{: AWS, Digital Ocean, Google Cloud Platform} \\
+     \textbf{Languages}{: Vietnamese (native), English (proficient, IELTS 7.x)}
+    }}
+ \end{itemize}
+
+%-----------AWARDS---------------
+\section{Awards}
+\begin{itemize}[leftmargin=0.15in, label={}]
+    \small\item
+    \textbf{Example Scholarship Award} recognized for outstanding academic performance.\\
+    Example Programming Contest{: \textbf{Ranked 1/100} (Regional Finals), \textbf{Ranked 5/200} (National Qualifier).}\\
+\end{itemize}
+
+%-----------WORK EXPERIENCE-----------
+\section{Work experience}
+  \resumeSubHeadingListStart
+      \resumeSubheading
+    {Software Engineer Intern}{\small\textbf{Jan. 2024 -- Apr. 2024}}
+    {Example Company Inc.}{Example City, Country}
+    \resumeItemListStart
+    \resumeItem{Cut average API response time by 65\% (500ms to 175ms) by adding database indexing and query optimization to the 5 highest-traffic backend endpoints.}
+    \resumeItem{Shortened incident detection time by 5 minutes on average by designing real-time monitoring dashboards and alerts for critical business metrics.}
+    \resumeItem{Reduced failed production releases by 90\% by building an automated CI/CD pipeline with GitHub Actions and rollouts}
+    \resumeItem{Raised backend test coverage from 40\% to 85\% by writing unit and integration tests and enforcing coverage gates in CI.}
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+    \resumeProjectHeading
+        {\textcolor{blue}{\href{https://github.com/GDSC-HCMUS/cs101-cv-template}{Example Project}} $|$ \textit{Next.js, NestJS, FastAPI, PostgreSQL, Redis, Elasticsearch}}{\small Apr. 2022 -- May 2022}
+        \resumeItemListStart
+          \resumeItem{Cut average API response time by 65\% across 1M+ records by implementing pagination and database indexing in a modular NestJS backend.}
+          \resumeItem{Delivered full-text search results in under 500ms across 1M+ articles by integrating Elasticsearch for advanced search.}
+          \resumeItem{Reduced deployment time from hours to under 5 minutes by establishing GitHub Actions CI/CD pipelines with environment-specific workflows.}
+          \resumeItem{Maintained 99.9\% uptime during data updates by leveraging ArgoCD for GitOps-driven deployment across dev and staging environments.}
+        \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------CERTIFICATES-----------
+\section{Certificates}
+\begin{itemize}[leftmargin=0.15in, label={}]
+    \small\item
+    \textbf{AWS Certified Cloud Practitioner} -- Amazon Web Services, Issued Jun. 2023.\\
+\end{itemize}
+
+%-------------------------------------------
+\end{document}

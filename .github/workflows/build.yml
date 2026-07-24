@@ -1,0 +1,78 @@
+name: Build CV
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+    paths:
+      - resume.latex
+      - Makefile
+      - .github/workflows/**
+  pull_request:
+    branches: [main]
+    paths:
+      - resume.latex
+      - Makefile
+      - .github/workflows/**
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  RESUME_NAME: John-Doe-Resume
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Spell check
+        uses: codespell-project/actions-codespell@v2
+        with:
+          path: resume.latex
+
+      - name: Link check
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress resume.latex
+          fail: true
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume.latex
+
+      - name: Check page count
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y poppler-utils
+          pages=$(pdfinfo resume.pdf | awk '/^Pages:/ {print $2}')
+          echo "resume.pdf has $pages page(s)"
+          if [ "$pages" -ne 1 ]; then
+            echo "::error::resume.pdf has $pages pages, expected exactly 1"
+            exit 1
+          fi
+
+      - name: Rename PDF
+        run: cp resume.pdf "${RESUME_NAME}.pdf"
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.RESUME_NAME }}
+          path: ${{ env.RESUME_NAME }}.pdf
+          retention-days: 7
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.RESUME_NAME }}.pdf
+          generate_release_notes: true
